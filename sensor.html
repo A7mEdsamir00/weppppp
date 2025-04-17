@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام كشف الحرائق - متصل بالخادم</title>
+    <link rel="stylesheet" href="sensor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-fire"></i>
+            <h1>Fire Detection System</h1>
+        </div>
+        <div class="header-right">
+            <div class="connection-status" id="connectionStatus">
+                <i class="fas fa-circle"></i>
+                <span>جاري الاتصال...</span>
+            </div>
+            <div class="last-update" id="lastUpdate">
+                آخر تحديث: غير متاح
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="dashboard">
+            <div class="sensor-card temperature">
+                <div class="sensor-icon">
+                    <i class="fas fa-temperature-high"></i>
+                </div>
+                <div class="sensor-info">
+                    <h2>درجة الحرارة</h2>
+                    <div class="sensor-value" id="tempValue">-- °C</div>
+                    <div class="sensor-status" id="tempStatus">--</div>
+                </div>
+            </div>
+
+            <div class="sensor-card humidity">
+                <div class="sensor-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <div class="sensor-info">
+                    <h2>الرطوبة</h2>
+                    <div class="sensor-value" id="humidityValue">-- %</div>
+                    <div class="sensor-status" id="humidityStatus">--</div>
+                </div>
+            </div>
+
+            <div class="sensor-card smoke">
+                <div class="sensor-icon">
+                    <i class="fas fa-smog"></i>
+                </div>
+                <div class="sensor-info">
+                    <h2>مستوى الدخان</h2>
+                    <div class="sensor-value" id="smokeValue">-- PPM</div>
+                    <div class="sensor-status" id="smokeStatus">--</div>
+                </div>
+            </div>
+
+            <div class="sensor-card flame">
+                <div class="sensor-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="sensor-info">
+                    <h2>كشف اللهب</h2>
+                    <div class="sensor-value" id="flameValue">--</div>
+                    <div class="sensor-status" id="flameStatus">--</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2>تغير درجات الحرارة</h2>
+            <canvas id="temperatureChart"></canvas>
+        </div>
+
+        <div class="alerts-container">
+            <h2>التنبيهات</h2>
+            <div class="alerts-list" id="alertsList">
+                <!-- التنبيهات تظهر هنا تلقائيا -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 نظام كشف الحرائق. معهد المستقبل للعلوم المتخصصه</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="sensor.js"></script>
+</body>
+</html>
